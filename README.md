@@ -13,11 +13,10 @@
 - [로또]()
 - [나만의 유튜브 강의실]()
 - [지하철 노선도]()
-- [TDD&Cypress]()
+- [Cypress]()
 <br />
 
 ### 👍기타
 - [FE 공지사항](https://github.com/woowacourse/fe-library/blob/main/%EA%B8%B0%ED%83%80/FE%20%EA%B3%B5%EC%A7%80%EC%82%AC%ED%95%AD.md)
-- [페어프로그래밍 가이드]()
-- [Git 가이드](https://github.com/woowacourse/fe-library/blob/main/%EA%B8%B0%ED%83%80/Git%20%EA%B0%80%EC%9D%B4%EB%93%9C.md)
+- [페어프로그래밍 가이드](https://github.com/woowacourse/fe-library/blob/main/%EA%B8%B0%ED%83%80/%ED%8E%98%EC%96%B4%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%20%EA%B0%80%EC%9D%B4%EB%93%9C.md#%ED%8E%98%EC%96%B4%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EA%B0%80%EC%9D%B4%EB%93%9C)
 - [도서 추천]()
