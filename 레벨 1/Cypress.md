@@ -65,8 +65,8 @@ addArrow 함수는 피드백 받기 이전에 view/racingView.js 에 displayArro
 
 <br />
 
-### 
+### cypress 버전 오류가 나요.
 ```
-질문
+cypress 6.5 버전 오류가 나네요. 어떻게 해결할 수 있을까요?
 ```
-- 답변
+- `yarn remove cypress` 하신 다음에 `yarn add cypress@6.4.0` 하시면 문제 없이 열립니다.
