@@ -24,11 +24,15 @@ const expectedArray = ['a','b','c'];
 이벤트 루프는 현재의 실행 컨텍스트가 종료 되었는지 반복적으로 확인 한다.
 해당 컨텍스트가 종료되면, task queue 에 대기 중인 함수를 선입선출 순으로 콜 스택으로 보내고, 콜 스택은 들어온 함수들을 바로 바로 처리한다.
 2번 과정에 대해 궁금한 점이 있는데,
+```
+```js
 function() {
 	setTimeout(callBack1, 1000);
 	setTimeout(callBack2, 3000);
 	setTimeout(callBack3, 2000);
 }
+```
+```
 이러한 경우에는 setTimeout 이 타이머를 설정하고, 타이머 종료 순으로 task queue 에 [callBack1, callBack3, callBack2] 순으로 
 임시 저장을 하고 있다고 이해하는 게 맞을까요?
 ```
@@ -64,3 +68,34 @@ car.start().drive()
 - Process env는 nodejs에서 쓰는 환경변수 입니다.
 - process가 node에서만 사용되는 객체인 것으로 알고있습니다. 웹팩 에서 플러그인으로 process.env를 설정하고 사용하는 건 본 것 같습니다.
 
+<br />
+
+### HTMLElement의 프로토타입에 mixin을 추가했을때 문제점
+```
+기존의 메서드도 그대로 사용하면서 커스텀 메서드는 체이닝을 할 수 있게 해보았습니다. built-in 객체의 프로토타입에 이렇게 직접 적용해도 되는 걸까요?
+```
+
+```js
+import { CLASSNAME } from "../constants/index.js";
+const customElementMethodMixin = {
+  show() {
+    this.classList.remove(CLASSNAME.COMMON.HIDDEN);
+    return this;
+  },
+  hide() {
+    this.classList.add(CLASSNAME.COMMON.HIDDEN);
+    return this;
+  },
+  toggle(className) {
+    this.classList.toggle(className);
+    return this;
+  },
+};
+Object.assign(HTMLElement.prototype, customElementMethodMixin);
+export const $ = (selector) => document.querySelector(selector);
+// 사용예시
+$("#app").show().toggle("--shining").innerText = "test";
+```
+
+- 객체 내의 동명의 프로퍼티를 갖게 될 경우 그 값이 override 되기 때문에 내장 객체의 모든 프로퍼티를 파악하지 않는다면 코드 작성 중에 예상 동작과 다르게 적용될 수도 있을 것 같아요
+- 빌트인 객체에 직접 적용하는 것은 많은 문제가 발생한다고 하네요. $ 함수 안에서 필요한 메서드만 만들어서 객체로 반환하는 것이 가장 안전할 것 같다고 생각합니다.
