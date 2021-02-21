@@ -1,10 +1,12 @@
 ## 👍 우아한테크코스 프론트엔드 지식저장소
+<br />
 
 ### 🚀 우아한테크코스
 - [FE 공지사항](https://github.com/woowacourse/fe-library/blob/main/Course/FrontEndNotice.md)
 - [페어프로그래밍 가이드](https://github.com/woowacourse/fe-library/blob/main/Course/PairProgrammingGuide.md)
 - [추천컨텐츠](https://github.com/woowacourse/fe-library/blob/main/Course/RecommendedContents.md)
 - 수업자료
+<br />
 
 ### 🚀 레벨1  Q&A
 
