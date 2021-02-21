@@ -62,7 +62,6 @@ addArrow 함수는 피드백 받기 이전에 view/racingView.js 에 displayArro
 - 문제를 찾았습니다. 찾고자 하는 값들이 cypress의 document에 없으니 null 값에 대해서 value 나, addEventListner 와 같은 동작을 할 수 없다고 하는 것이었습니다. racingController 에서 index.js 에서 import 를 불러오지 않게 하거나, addArrow가 다른 함수를 이용하지 않으니, 아예 다른 파일로 빼놓아야 할 것 같습니다.
   <p align="center"><img src="https://user-images.githubusercontent.com/60066472/108364533-841b0e00-7239-11eb-81da-2bf06e25f26a.png" width="400"></p>
 
-
 <br />
 
 ### cypress 버전 오류가 나요.
@@ -70,3 +69,15 @@ addArrow 함수는 피드백 받기 이전에 view/racingView.js 에 displayArro
 cypress 6.5 버전 오류가 나네요. 어떻게 해결할 수 있을까요?
 ```
 - `yarn remove cypress` 하신 다음에 `yarn add cypress@6.4.0` 하시면 문제 없이 열립니다.
+
+<br />
+
+### cypress 자동 실행 할 수 있나요?
+```
+CYPRESS로 자동화 프로그램을 만들어 봤습니다.
+VSCODE에서 수동으로 npx cypress open 칠 필요없이 자동으로 매일 12시 1분에 실행되게 하려면 어떻게 해야 하나요?
+```
+- '크론탭' 알아보세요.
+- 맥OS 사용하시면 '키보드마에스트로' 로 가능합니다.
+- Google Cloud Functions 서비스를 이용해서 특정 url 로 접근이 들어오면 puppeteer(cypress와 비슷한 자동화 툴)를 실행해서 크롤링을 수행하는 프로그램을 짠적이 있었습니다. 그거랑 Google Cloud Scheduler 로 해당 URL에 일정한 시간마다 접근되도록 만들면 만들 수 있을 것 같습니다.
+- 스케줄러가 필요하다면 [Google Action](https://velog.io/@chris/replacing-crontab-with-the-schedule-feature-of-github-actions) 도 있습니다.
