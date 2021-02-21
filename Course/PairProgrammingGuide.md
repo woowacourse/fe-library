@@ -7,7 +7,7 @@
 <br />
 
 ### PR을 올리고 리뷰요청 버튼을 눌러도 리뷰요청이 안돼요.
-- woowacourse:${본인 깃헙 아이디} 로 PR보내셔야 합니다.
+- woowacourse:${본인 깃헙 아이디} 로 PR 보내셔야 합니다.
   <p  align="center"><img src="https://user-images.githubusercontent.com/60066472/108366277-87af9480-723b-11eb-9800-18e6a7a9431e.png" width="600"></p>
   
 <br />
@@ -17,7 +17,7 @@
   
 <br />
 
-### PR 커밋로그에 페어와 함께 커밋을 쌓을 수 있는 방법이 있나요?
+### PR 커밋 로그에 페어와 함께 커밋을 쌓을 수 있는 방법이 있나요?
 - 방법1
   - 페어1의 레포에는 git remote로 페어2의 레포를 add하고, 페어2의 레포에는 git remote로 페어1의 레포를 add해서 push, pull하면 됩니다. 참고하면 좋은 링크입니다. [git pull pair](https://dalya-tech.tistory.com/1), [Git Workflow](https://paigekim29.medium.com/til-2020-11-30-3f78f73d1173)
 - 방법2
