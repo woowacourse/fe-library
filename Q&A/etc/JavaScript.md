@@ -108,3 +108,14 @@ $('#app').show().toggle('--shining').innerText = 'test';
 
 - 객체 내의 동명의 프로퍼티를 갖게 될 경우 그 값이 override 되기 때문에 내장 객체의 모든 프로퍼티를 파악하지 않는다면 코드 작성 중에 예상 동작과 다르게 적용될 수도 있을 것 같아요
 - 빌트인 객체에 직접 적용하는 것은 많은 문제가 발생한다고 하네요. $ 함수 안에서 필요한 메서드만 만들어서 객체로 반환하는 것이 가장 안전할 것 같다고 생각합니다.
+
+<br />
+
+### createElement를 통해 생성된 DOM 객체에 appendChild한 경우 reflow가 발생할까요?
+
+```
+createElement를 통해 생성만 해둔 DOM 객체에 appendChild를 실행하는 것도 실제 DOM에 변경이 가해지는지, 그러니까 Reflow가 발생하는지 궁금합니다.
+```
+
+createElement 자체는 DOM에 반영되지 않기 때문에 appendㅊhild하더라도 reflow가 발생하지 않아요.
+추가적으로 Element가 많아질수록 DOMNode.appendChild( … )보다 Fragment.appendChild( ... )를 사용하는 것이 좋아요.
