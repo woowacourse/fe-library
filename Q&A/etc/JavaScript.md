@@ -117,5 +117,17 @@ $('#app').show().toggle('--shining').innerText = 'test';
 createElement를 통해 생성만 해둔 DOM 객체에 appendChild를 실행하는 것도 실제 DOM에 변경이 가해지는지, 그러니까 Reflow가 발생하는지 궁금합니다.
 ```
 
-createElement 자체는 DOM에 반영되지 않기 때문에 appendㅊhild하더라도 reflow가 발생하지 않아요.
+- createElement 자체는 DOM에 반영되지 않기 때문에 appendㅊhild하더라도 reflow가 발생하지 않아요.
 추가적으로 Element가 많아질수록 DOMNode.appendChild( … )보다 Fragment.appendChild( ... )를 사용하는 것이 좋아요.
+
+<br />
+
+### 상수파일 json vs js
+
+```
+상수파일 json이랑 js 중 뭐로 만드는게 좋을까요?
+json은 읽기만 되고 수정이 안되어서 더 적절한 것 같아요
+```
+
+- json파일을 import하려면 babel 또는 webapack이 필요합니다. js에서 상수를 관리하는 것이 더 좋을 것 같아요.
+[참고링크](https://stackoverflow.com/questions/34944099/how-to-import-a-json-file-in-ecmascript-6)
