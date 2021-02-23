@@ -131,3 +131,12 @@ json은 읽기만 되고 수정이 안되어서 더 적절한 것 같아요
 
 - json파일을 import하려면 babel 또는 webapack이 필요합니다. js에서 상수를 관리하는 것이 더 좋을 것 같아요.
 [참고링크](https://stackoverflow.com/questions/34944099/how-to-import-a-json-file-in-ecmascript-6)
+
+<br />
+
+### 크롬 콘솔 창에 `#`이 생기는 이유가 뭔가요 ?
+```
+콘솔에 샵은 뭘까요! 티케 궁금해서 미쳐가는 중
+```
+- 정확히 말하자면 크롬 타입 에러 메세지에요.
+다른 타입들은 #안뜨고 다르게 뜹니당
