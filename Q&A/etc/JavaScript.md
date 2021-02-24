@@ -140,3 +140,41 @@ json은 읽기만 되고 수정이 안되어서 더 적절한 것 같아요
 ```
 - 정확히 말하자면 크롬 타입 에러 메세지에요.
 다른 타입들은 #안뜨고 다르게 뜹니당
+
+<br />
+
+### switch - case 문에서 왜 케이스를 통과할까요?
+```
+switch-case 문 안에서,
+this.matchingNumbers 가 5이고 this.isMatchBonus 가 true일 때는 rank를 2로 하고,
+this.matchingNumbers 가 5이고 this.isMatchBonus 가 false일 때는 rank를 3으로 하고 싶은데 아래와 같이 썼을 때만 정상 작동하고,
+case 5 && this.isMatchBonus 라고 조건문의 순서를 바꾸면 rank가 2가 아닌 3이 됩니다.
+저희가 어딘가 잘못 쓴 건지, 아니면 개념을 잘못 이해하고 있는 건지 궁금해서 고민하다가 질문 올립니다!
+아시는 분 답변 부탁드리겠습니다.
+```
+
+```js
+switch (this.matchingNumbers) {
+      case 6:
+        this._rank = 1;
+        break;
+      case this.isMatchBonus && 5: // 문제의 라인
+        this._rank = 2;
+        break;
+      case 5:
+        this._rank = 3;
+        break;
+      case 4:
+        this._rank = 4;
+        break;
+      case 3:
+        this._rank = 5;
+        break;
+      default:
+        this._rank = Infinity;
+    }
+```
+- case 5 에 `this.isMatchBonus`를 if문으로 분기하시면 어떨까요...?
+- expr1 && expr2에서 expr1 를 true로 변환할 수 있는 경우 expr2을 반환하고, 그렇지 않으면 expr1을 반환합니다. `5 && true`의 경우는 `5`를 `true`로 변환할 수 있었기 때문에 `true`가 반환된 것이고
+`true && 5`의 경우는 `true`를 `true`라고 변환할 수 있었기에 `5`가 반환될 수 있었군요. 무조건 true나 false가 나올 줄 알았는데 이런 규칙이 있었군요... [참고링크](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/%EB%85%BC%EB%A6%AC_%EC%97%B0%EC%82%B0%EC%9E%90(Logical_Operators))
+- `this._rank = this.isMatchBonus ? 2 : 3` 과 같은 방식으로 하는 어떨까요?
