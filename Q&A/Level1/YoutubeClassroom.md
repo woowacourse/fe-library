@@ -54,3 +54,20 @@ import dotenv from 'dotenv'
 - Netlify Functions를 이용해 Redirect Server를 만들어 사용하여 API key를 숨길 수 있다.
 - [바로 이용가능한 repo](https://github.com/bigsaigon333/hide-api-key-with-serverless-functions) : 이 레포지토리는 Client-Side 에서 API Key를 노출하지 않고 Youtube API와 통신하기 위한 redirect server 입니다.
 - [레포 주인의 정리 블로그](https://velog.io/@bigsaigon333/Client-Side%EC%97%90%EC%84%9C-Youtube-API-Key-%EC%88%A8%EA%B8%B0%EA%B8%B0)
+<br />
+
+---
+
+### Q. YOUTUBE API Quota가 너무 많이 들어요
+keyword : youtube API Key, Quota 
+```
+https://developers.google.com/youtube/v3/determine_quota_cost
+유튜브 API 코스트를 보면 search api 요청을 한번 보내는데 비용이 100입니다. 
+하루 할당량이 10,000이라서 벌써 할당량을 다 사용해버렸네요… 
+혹시 다른 분들은 search말고 다른 api요청을 보내고 계신가요? 아니면 검색을 최대한 자제하면서 미션을 진행하고 계씬가요?
+```
+- 구글 계정을 계속 만드는 중입니다..
+- 저희두 구글 계정을 추가로 만들고 있습니다... 알아낸 바에 따르면 태평양 표준시(PT)에 할당량이 초기화되어서 곧 있을 17:00 면 초기화되기를 바라고 있습니다
+- 일단 검색은 구현해두고 비활성화해두고 videos 를 이용해 영상 불러오는거 테스트 입니다. search는 비용이 100인데 video는 1이에요. 대신 키워드검색은 안되더라고요.[참고](https://developers.google.com/youtube/v3/docs/videos/list?hl=ko)
+- https://www.googleapis.com/youtube/v3/search로 100씩 소진해야하지만, 검색은 어쨌든 잘될테니 https://www.googleapis.com/youtube/v3/videos 로 1씩 소진하며 렌더를 해본다!
+- 저희는 따로 개발용으로 더미 데이터만 반환하는 가짜 API를 하나 만들어서 작업 중입니다. API 요청해서 받아온 데이터 JSON을 텍스트로 따로 만든 다음에, 그 JSON을 받아오도록 구현해서 만들었습니다. 제출할 때는 실제 API로 호출되게 코드를 바꿔서 제출하려구요
