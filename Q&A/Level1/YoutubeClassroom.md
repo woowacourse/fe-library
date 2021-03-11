@@ -54,6 +54,7 @@ import dotenv from 'dotenv'
 - Netlify Functions를 이용해 Redirect Server를 만들어 사용하여 API key를 숨길 수 있다.
 - [바로 이용가능한 repo](https://github.com/bigsaigon333/hide-api-key-with-serverless-functions) : 이 레포지토리는 Client-Side 에서 API Key를 노출하지 않고 Youtube API와 통신하기 위한 redirect server 입니다.
 - [레포 주인의 정리 블로그](https://velog.io/@bigsaigon333/Client-Side%EC%97%90%EC%84%9C-Youtube-API-Key-%EC%88%A8%EA%B8%B0%EA%B8%B0)
+- [365kim - 쉽게 쓰인 유튜브 API 튜토리얼](https://365kim.tistory.com/93)
 <br />
 
 ---
