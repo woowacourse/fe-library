@@ -71,3 +71,28 @@ https://developers.google.com/youtube/v3/determine_quota_cost
 - 일단 검색은 구현해두고 비활성화해두고 videos 를 이용해 영상 불러오는거 테스트 입니다. search는 비용이 100인데 video는 1이에요. 대신 키워드검색은 안되더라고요.[참고](https://developers.google.com/youtube/v3/docs/videos/list?hl=ko)
 - https://www.googleapis.com/youtube/v3/search로 100씩 소진해야하지만, 검색은 어쨌든 잘될테니 https://www.googleapis.com/youtube/v3/videos 로 1씩 소진하며 렌더를 해본다!
 - 저희는 따로 개발용으로 더미 데이터만 반환하는 가짜 API를 하나 만들어서 작업 중입니다. API 요청해서 받아온 데이터 JSON을 텍스트로 따로 만든 다음에, 그 JSON을 받아오도록 구현해서 만들었습니다. 제출할 때는 실제 API로 호출되게 코드를 바꿔서 제출하려구요
+
+---
+
+### **Youtube 미션 공통 리뷰** by JBee
+
+**1. Local Storage**
+- key 값을 상수화 한다면?
+- 좀 더 나아가 key 값과 함께 추상화를 한 단계 더 하면 어떨까?
+- getter에서 default value를 지정해주곤 하는데, 이 부분도 함께 **추상화** 할 수는 없을까?
+- JSON.parse 하다가 올바르지 못한 JSON이 저장될 수는 없을까?
+- parse하다가 에러가 발생하면? 고려해줘야 하지 않을까?
+
+**2. Modal** 
+- 모달이 open인 상태에서 document **body 의 scroll을 lock 해주는 UX**는 어떨까?
+- dimmer click을 특정 값(data-*, id, class)에 의존하지 않고 **target, current target을 비교**해서 컨트롤 할 수 있지 않을까? -> 자세한 내용은 [Dom object model Event Delegation 글](https://jbee.io/web/about-event-in-the-web/) 참고!
+
+**3. Scroll Event**
+- 스크롤 이벤트는 엄청 많이 발생하는데 좀 더 **최적화** 해볼 수 있지 않을까? -> 자세한 내용은 [스크롤 이벤트 최적화 글](https://jbee.io/web/optimize-scroll-event/) 참고! **(주의: 어려움)**
+- 스크롤 이벤트 너무 비용이 많이 드는데 **다른 방법**은 없을까? -> [IntersectionObserver](https://developer.mozilla.org/ko/docs/Web/API/Intersection_Observer_API)로 할 수 있을까
+
+**4. Security**
+- a tag에 `target="_blank"` property를 줘서 새 창으로 띄울 때 고려해야하는 이슈가…! (**hint: noopener**)
+
+**5. Bonus**
+- SPA Application (written by React)의 CSR(Client Side Rendering) vs Server Side Rendering (with VanillaJS) 무엇이 다를까?
