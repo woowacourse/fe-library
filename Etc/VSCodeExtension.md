@@ -14,3 +14,13 @@
 
 - 오 우분투도 있네욥 ([링크](https://askubuntu.com/questions/431251/how-to-print-the-directory-tree-in-terminal))
 - mac이면 터미널에서 폴더가서 tree 입력하면 됩니당
+
+
+### Live Server Port
+```
+hoxy 라이브 서버 포트가 원래 5500이었는데 5501으로 바뀐 후에 무슨 짓을 해봐도 다시 5500으로 안 돌아가는데…
+다시 5500으로 돌리는 방법을 아시는 분이 있나요?
+```
+- 컴퓨터를 껐다 켜보시거나 VSCode setting.json에서 liveServer.settings.port의 값이 5500인지 확인해보세요
+- .vscode 폴더가 자동 생성되어있을텐데 지우면 돌아갑니당. 따로 설정파일이 만들어지더라구여~
+- 앗 제가 모르는 곳에 settings.json이 또 들어가있었네요😂 감삼당!!
