@@ -97,3 +97,20 @@ https://developers.google.com/youtube/v3/determine_quota_cost
 
 **5. Bonus**
 - SPA Application (written by React)의 CSR(Client Side Rendering) vs Server Side Rendering (with VanillaJS) 무엇이 다를까?
+
+### 볼/본 영상에서 동영상 재생하고 모달 띄우면 재생되던 동영상 모두 일시정지
+
+```
+모달에서 동영상 재생 후 모달 닫으면 동영상 모두 일시정지
+볼 영상에서 동영상 재생 후, 본 영상으로 이동시 동영상 모두 일시정지
+하는 방법 아시는 분~~ 알려주세요… (_ _)
+```
+
+- iframe에 iframe.allowscriptaccess = ‘always’ 속성 추가
+- embed URL 에 ?enablejsapi=1&version=3&playerapiid=ytplayer 쿼리 추가
+- Event발생 시 원하는 iframe을 찾아서 실행 ( contentWindow가 아니라 contentHtml인 브라우저도 있다고 하지만.. 일단 고려하지 않았습니당..)
+
+```jsx
+iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":"", '*')
+```
+- [참고 링크](https://stackoverflow.com/questions/15164942/stop-embedded-youtube-iframe#comment70304120_30358006) by 도비
