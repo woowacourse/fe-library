@@ -2,19 +2,19 @@
 <br />
 
 ### 🚀 우아한테크코스
-- [FE 공지사항](https://github.com/woowacourse/fe-library/blob/main/Course/FrontEndNotice.md)
-- [페어프로그래밍 가이드](https://github.com/woowacourse/fe-library/blob/main/Course/PairProgrammingGuide.md)
-- [추천컨텐츠](https://github.com/woowacourse/fe-library/blob/main/Course/RecommendedContents.md)
+- [FE 공지사항](./WoowaCourse/FrontEndNotice.md)
+- [페어프로그래밍 가이드](./WoowaCourse/PairProgrammingGuide.md)
+- [추천컨텐츠](./WoowaCourse/RecommendedContents.md)
 - 수업자료
 <br />
 
 ### 🚀 레벨1  Q&A
 
-- [자동차 경주 게임](https://github.com/woowacourse/fe-library/blob/main/Q%26A/Level1/CarRacingGame.md)
-- [로또](https://github.com/woowacourse/fe-library/blob/main/Q%26A/Level1/Lotto.md)
-- [나만의 유튜브 강의실](https://github.com/woowacourse/fe-library/blob/main/Q&A/Level1/YoutubeClassroom.md)
+- [자동차 경주 게임](./Mission/Level1/CarRacingGame.md)
+- [로또](./Mission/Level1/Lotto.md)
+- [나만의 유튜브 강의실](./Mission/Level1/YoutubeClassroom.md)
 - 지하철 노선도
-- [Cypress](https://github.com/woowacourse/fe-library/blob/main/Q%26A/Level1/Cypress.md)
+- [Cypress](./Mission/Level1/Cypress.md)
 <br />
 
 ### 💻 레벨1 미션 repo
@@ -25,8 +25,13 @@
 <br />
 
 ### 🚀 프로그래밍 일반
-- [JS](https://github.com/woowacourse/fe-library/blob/main/Q%26A/etc/JavaScript.md)
-- [디자인패턴](https://github.com/woowacourse/fe-library/blob/main/Q%26A/etc/DesignPattern.md)
-- [웹 접근성](https://github.com/woowacourse/fe-library/blob/main/article/WebAccessibility.md)
-- [HTML](https://github.com/woowacourse/fe-library/blob/main/article/HTML.md)
+- [JS](./Programming/JavaScript.md)
+- [디자인패턴](./Programming/DesignPattern.md)
+- [HTML](./Programming/HTML.md)
+- [DOM](./Programming/DOM.md)
+
 <br />
+
+### 📌 링크 모음
+- [웹 접근성](./Link/WebAccessibility.md)
+- [코드 구조 시각화](./Link/Visualization.md)
