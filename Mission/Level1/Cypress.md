@@ -1,53 +1,59 @@
 ## 📝 Cypress Q&A
 
 ### 모듈을 어떻게 import 해서 사용하나요?
+
 ```
 model로 선언한 RacingCar() 모듈을 cypress spec 코드에서 import해서 쓸 수 있나요?
 import하면 addEventListener() 하는 부분에서 DOM을 찾을 수 없다는 문제가 계속 발생합니다.
 혹시 다른 라이브러리 등을 설치해서 쓰셨는지 이와 같은 에러는 없으셨는지 궁금합니다!
 ```
-  - 비즈니스 로직 함수만 따로 가져와서 사용했어요. nodejs에는 DOM객체가 없어서 따로 만들어야 합니다.
-  - spec코드에 import해오면 html에 붙어있는 형태가 아니라 DOM 조작을 하지 못합니다. 다른 방식으로 구현하셔야 합니다.
-  - Car 객체에 DOM을 조작하는 요소가 없으면 require해서 사용할 수 있습니다. DOM 조작 메서드를 분리하는 것은 어떨까 싶습니다.
-  - `dom && dom.style.display = 'none'`과 같이 dom 요소가 있는 경우에만 dom 관련 로직을 수행하게끔 하는 방법도 있습니다.
+
+- 비즈니스 로직 함수만 따로 가져와서 사용했어요. nodejs에는 DOM객체가 없어서 따로 만들어야 합니다.
+- spec코드에 import해오면 html에 붙어있는 형태가 아니라 DOM 조작을 하지 못합니다. 다른 방식으로 구현하셔야 합니다.
+- Car 객체에 DOM을 조작하는 요소가 없으면 require해서 사용할 수 있습니다. DOM 조작 메서드를 분리하는 것은 어떨까 싶습니다.
+- `dom && dom.style.display = 'none'`과 같이 dom 요소가 있는 경우에만 dom 관련 로직을 수행하게끔 하는 방법도 있습니다.
 
 <br />
 
 ### alert 호출 여부는 어떻게 검증하나요?
+
 ```
 window.alert 가 호출이 되어야 하는 상황임에도 아예 window.alert 가 호출되지 않은 경우면 아래의 코드는 문제없이 통과될 것 같습니다.
 cy.on('window:alert', (txt) => {expect(txt).to.contains(CAR_NAME_EMPTY);});
-해당 부분에 대해서는 어떻게 검증하셨을까요? 
+해당 부분에 대해서는 어떻게 검증하셨을까요?
 ```
+
 - 저도 이렇게 해서 alert가 없으면 pass가 되어서 결국 stub를 이용해서 구현했습니다. valid 테스트하는 describe를 분리해서 아래와 같이 공통화 시켜주었습니다.
   ```javascript
   beforeEach(() => {
-    cy.visit("http://localhost:5500/");
+    cy.visit('http://localhost:5500/');
     cy.window()
-      .then(win => cy.stub(win, "alert"))
-      .as("alertStub");
+      .then((win) => cy.stub(win, 'alert'))
+      .as('alertStub');
   });
   ```
 
 <br />
 
 ### 직접 테스트했을 때 통과하지만 cypress에서는 통과가 안돼요.
+
 ```
 자동차 1단계 alert 한 후 화면 조작 관련된 질문입니다.
-자동차 이름을 입력받은 후, 유효성 검사를 통과하지 못하면 alert를 띄워준 후 다시 게임을 초기화 하도록 설정하였습니다. 
+자동차 이름을 입력받은 후, 유효성 검사를 통과하지 못하면 alert를 띄워준 후 다시 게임을 초기화 하도록 설정하였습니다.
 그 과정에서 테스트 코드와 직접 입력했을 때 모순이 생깁니다.
 테스트 돌려보면 alert를 확인 한 후 시도 횟수를 입력하는 칸이 보여지고, 직접해보면 잘못된 정보를 입력한 경우 보이지 않습니다.
 어떠한 자동차 이름을 입력하게 한 경우에도 강제로 시도 횟수를 입력하는 부분을 숨기도록 설정했을 때, 테스트 코드가 통과합니다.
-어떤 부분이 잘못되었는지 모르곘습니다ʕʘ‿ʘʔ ʕʘ‿ʘʔ 도와주세여ㅠㅠㅠ 
+어떤 부분이 잘못되었는지 모르곘습니다ʕʘ‿ʘʔ ʕʘ‿ʘʔ 도와주세여ㅠㅠㅠ
 ```
+
 - 해결이 되었습니다. cypress의 should 와 expect의 동작 차이인 것 같습니다.
 - 저희가 원했던대로 잘못된 케이스를 넣으면 무조건적으로 alert가 뜨고 그 이후에 안보이게 하려고 한다면 should를 쓰는게 맞는가 봅니다.
   <p align="center"><img src="https://user-images.githubusercontent.com/60066472/108363872-bf690d00-7238-11eb-8471-2deb42870498.png" width="400"></p>
 
-
 <br />
 
 ### cypress 에서 DOM 요소를 찾을 수 없다는 에러가 발생합니다.
+
   <p align="center"><img src="https://user-images.githubusercontent.com/60066472/108364946-fbe93880-7239-11eb-8fcf-4146e801e41b.png" width="200"></p>
   
 ```
@@ -65,19 +71,35 @@ addArrow 함수는 피드백 받기 이전에 view/racingView.js 에 displayArro
 <br />
 
 ### cypress 버전 오류가 나요.
+
 ```
 cypress 6.5 버전 오류가 나네요. 어떻게 해결할 수 있을까요?
 ```
+
 - `yarn remove cypress` 하신 다음에 `yarn add cypress@6.4.0` 하시면 문제 없이 열립니다.
 
 <br />
 
 ### cypress 자동 실행 할 수 있나요?
+
 ```
 CYPRESS로 자동화 프로그램을 만들어 봤습니다.
 VSCODE에서 수동으로 npx cypress open 칠 필요없이 자동으로 매일 12시 1분에 실행되게 하려면 어떻게 해야 하나요?
 ```
+
 - '크론탭' 알아보세요.
 - 맥OS 사용하시면 '키보드마에스트로' 로 가능합니다.
 - Google Cloud Functions 서비스를 이용해서 특정 url 로 접근이 들어오면 puppeteer(cypress와 비슷한 자동화 툴)를 실행해서 크롤링을 수행하는 프로그램을 짠적이 있었습니다. 그거랑 Google Cloud Scheduler 로 해당 URL에 일정한 시간마다 접근되도록 만들면 만들 수 있을 것 같습니다.
 - 스케줄러가 필요하다면 [Google Action](https://velog.io/@chris/replacing-crontab-with-the-schedule-feature-of-github-actions) 도 있습니다.
+
+<br />
+
+### cypress 코드 재사용 꿀팁
+
+```
+여러분 다들 cypress로 테스트짜느라 고민들 많이하시는거 같은데,
+제가 예전에 발리스타님께 피드백 받은 cypress 작성하는 부분중에서 공유하고 싶은 내용이 있어서 공유합니다!
+한번씩들 보시면 cypress 짜실때 도움많이 될거같아요
+```
+
+- [cypress 꿀팁](https://github.com/woowacourse/javascript-racingcar/pull/20#discussion_r574992460)
