@@ -17,6 +17,22 @@ const expectedArray = ['a','b','c'];
 
 <br />
 
+### 이벤트루프
+
+```
+아이고...허허허
+아까 테코톡 Q&A할 때 대답한 게 죄다 틀린 것 같습니다..허허
+Web API 는 timer API, geolocation API 등등 여러 API를 통틀어서 부르는 호칭이고,
+걔네들이 각각의 스레드를 가지고 동작한다고 합니다...
+근데 걔네들도 결국에는 콜백 큐에 작업을 쌓아서 호출 스택에서 실행된다는 사실...
+잊지 마시기 바랍니다...허허허,,,
+```
+
+- [Is Web Api Multi-Threaded?](https://stackoverflow.com/questions/58910448/is-web-api-multi-threaded)
+- [JavaScript Event Loop Explained](https://medium.com/front-end-weekly/javascript-event-loop-explained-4cd26af121d4)
+
+<br />
+
 ### 이벤트루프는 어떻게 동작하나요?
 
 ```
@@ -118,7 +134,7 @@ createElement를 통해 생성만 해둔 DOM 객체에 appendChild를 실행하�
 ```
 
 - createElement 자체는 DOM에 반영되지 않기 때문에 appendㅊhild하더라도 reflow가 발생하지 않아요.
-추가적으로 Element가 많아질수록 DOMNode.appendChild( … )보다 Fragment.appendChild( ... )를 사용하는 것이 좋아요.
+  추가적으로 Element가 많아질수록 DOMNode.appendChild( … )보다 Fragment.appendChild( ... )를 사용하는 것이 좋아요.
 
 <br />
 
@@ -130,20 +146,23 @@ json은 읽기만 되고 수정이 안되어서 더 적절한 것 같아요
 ```
 
 - json파일을 import하려면 babel 또는 webapack이 필요합니다. js에서 상수를 관리하는 것이 더 좋을 것 같아요.
-[참고링크](https://stackoverflow.com/questions/34944099/how-to-import-a-json-file-in-ecmascript-6)
+  [참고링크](https://stackoverflow.com/questions/34944099/how-to-import-a-json-file-in-ecmascript-6)
 
 <br />
 
 ### 크롬 콘솔 창에 `#`이 생기는 이유가 뭔가요 ?
+
 ```
 콘솔에 샵은 뭘까요! 티케 궁금해서 미쳐가는 중
 ```
+
 - 정확히 말하자면 크롬 타입 에러 메세지에요.
-다른 타입들은 #안뜨고 다르게 뜹니당
+  다른 타입들은 #안뜨고 다르게 뜹니당
 
 <br />
 
 ### switch - case 문에서 왜 케이스를 통과할까요?
+
 ```
 switch-case 문 안에서,
 this.matchingNumbers 가 5이고 this.isMatchBonus 가 true일 때는 rank를 2로 하고,
@@ -155,26 +174,27 @@ case 5 && this.isMatchBonus 라고 조건문의 순서를 바꾸면 rank가 2가
 
 ```js
 switch (this.matchingNumbers) {
-      case 6:
-        this._rank = 1;
-        break;
-      case this.isMatchBonus && 5: // 문제의 라인
-        this._rank = 2;
-        break;
-      case 5:
-        this._rank = 3;
-        break;
-      case 4:
-        this._rank = 4;
-        break;
-      case 3:
-        this._rank = 5;
-        break;
-      default:
-        this._rank = Infinity;
-    }
+  case 6:
+    this._rank = 1;
+    break;
+  case this.isMatchBonus && 5: // 문제의 라인
+    this._rank = 2;
+    break;
+  case 5:
+    this._rank = 3;
+    break;
+  case 4:
+    this._rank = 4;
+    break;
+  case 3:
+    this._rank = 5;
+    break;
+  default:
+    this._rank = Infinity;
+}
 ```
+
 - case 5 에 `this.isMatchBonus`를 if문으로 분기하시면 어떨까요...?
 - expr1 && expr2에서 expr1 를 true로 변환할 수 있는 경우 expr2을 반환하고, 그렇지 않으면 expr1을 반환합니다. `5 && true`의 경우는 `5`를 `true`로 변환할 수 있었기 때문에 `true`가 반환된 것이고
-`true && 5`의 경우는 `true`를 `true`라고 변환할 수 있었기에 `5`가 반환될 수 있었군요. 무조건 true나 false가 나올 줄 알았는데 이런 규칙이 있었군요... [참고링크](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/%EB%85%BC%EB%A6%AC_%EC%97%B0%EC%82%B0%EC%9E%90(Logical_Operators))
+  `true && 5`의 경우는 `true`를 `true`라고 변환할 수 있었기에 `5`가 반환될 수 있었군요. 무조건 true나 false가 나올 줄 알았는데 이런 규칙이 있었군요... [참고링크](<https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/%EB%85%BC%EB%A6%AC_%EC%97%B0%EC%82%B0%EC%9E%90(Logical_Operators)>)
 - `this._rank = this.isMatchBonus ? 2 : 3` 과 같은 방식으로 하는 어떨까요?
