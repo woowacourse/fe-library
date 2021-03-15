@@ -49,4 +49,4 @@
 
 ## 🎸 기타
 
-- [VSCode Extension]('./Etc/VSCodeExtension.md)
+- [VSCode Extension](./Etc/VSCodeExtension.md)
