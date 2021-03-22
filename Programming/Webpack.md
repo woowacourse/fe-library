@@ -1,6 +1,7 @@
 ## 📝 Webpack
 
 ### 대소문자 파일명 인식 관련 webpack 버그
+
 문제를 간략히 말씀드리면
 
 1. import from 구문에서 upper case 파일명을 불러옴
@@ -17,7 +18,7 @@
 저는 저번에 어떤 크루분이 질문하셨던 깃 관련 문제도 있고, 이번 webpack 문제도 있어서,
 개인적으로 파일명을 케밥 케이스나 스네이크 케이스를 쓰는게 좀 더 근본적인 문제 해결책이라고 생각합니다.
 그런데 저번에 파일명을 스네이크 케이스로 쓰지말라는 공통 피드백을 받기도 했고,
-좋은 라이브러리들을 봐도 최근에는 카멜 케이스로 변하는 추세인 것 같은데 이유가 있을까요? 궁금합니다! 
+좋은 라이브러리들을 봐도 최근에는 카멜 케이스로 변하는 추세인 것 같은데 이유가 있을까요? 궁금합니다!
 ```
 
 - [Google Style Guide - File name](https://google.github.io/styleguide/jsguide.html#file-name), [Google Style Guide - Rules common to all identifiers](https://google.github.io/styleguide/jsguide.html#naming-rules-common-to-all-identifiers) 구글 자바스크립트 스타일 가이드 때문이려나요?
