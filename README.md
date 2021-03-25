@@ -29,7 +29,7 @@
 - [자동차 경주 게임](https://github.com/woowacourse/javascript-racingcar)
 - [로또](https://github.com/woowacourse/javascript-lotto)
 - [나만의 유튜브 강의실](https://github.com/woowacourse/javascript-youtube-classroom)
-- 지하철 노선도
+- [지하철 노선도](https://github.com/woowacourse/javascript-subway)
 
 <br />
 
