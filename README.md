@@ -40,6 +40,8 @@
 - [HTML](./Programming/HTML.md)
 - [DOM](./Programming/DOM.md)
 - [Webpack](./Programming/Webpack.md)
+- [Error Handling](./Programming/errorHandling.md)
+- [Promise](./Programming/Promise.md)
 
 <br />
 
