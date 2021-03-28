@@ -7,6 +7,7 @@
 - 근데 이번 미션에서는 web storage에 저장했다가 사용만 잘 해도 충분히 목표달성 아닌가 싶긴합니다!
 
 
+---
 
 ###  지하철 노선도 1단계 jbee 공통 피드백 
 
@@ -23,14 +24,14 @@ babel은 뭐고 polyfill은 뭐지? (다른건가?)
 
 #### 에러 처리에 대한 이야기
 API 호출이 기능에 추가되면서 try-catch를 사용하여 각자 다양한 방식으로 에러를 핸들링해주고 계십니다. 바로 위에서 말씀드린 Protected Routes 에서 드렸던 이야기와도 일맥상통할 이야기인데요,
-늘 그렇듯 개발엔 돌아가기면 하면 틀린 것은 없다고 생각합니다. 다만 더 나은 것은 항상 있고 더 낫다고 하더라도 항상 “트레이드 오프“가 존재하기 마련인데요, 제가 최근에 이 에러 처리에 대해 고민했고 그 과정을 글로 적은게 있습니다. 여러분도 한번 에러를 어떻게 처리하면 좋을까 충분히 고민해보시고, 시간 되실 때 글 한 번 읽어보세요!
-(1편, 3편은 React 중심이라서 2편만 읽어보시길 권장드립니다)
-[율적인 프런트엔드 에러 핸들링 2편. 클라이언트의 사용자 중심 예외 처리](https://jbee.io/react/error-declarative-handling-2/)
+늘 그렇듯 개발엔 돌아가기면 하면 틀린 것은 없다고 생각합니다. 다만 더 나은 것은 항상 있고 더 낫다고 하더라도 항상 “트레이드 오프“가 존재하기 마련인데요, 제가 최근에 이 에러 처리에 대해 고민했고 그 과정을 글로 적은게 있습니다. 여러분도 한번 에러를 어떻게 처리하면 좋을까 충분히 고민해보시고, 시간 되실 때 글 한 번 읽어보세요! (1편, 3편은 React 중심이라서 2편만 읽어보시길 권장드립니다)
+[효율적인 프런트엔드 에러 핸들링 2편. 클라이언트의 사용자 중심 예외 처리](https://jbee.io/react/error-declarative-handling-2/)
 
 
-## github pages에 SPA 배포하기
+---
 
-[gh-pages: dist 디렉토리만 deploy 하기](https://velog.io/@bigsaigon333/gh-pages-dist-%EB%94%94%EB%A0%89%ED%86%A0%EB%A6%AC%EB%A7%8C-deploy-%ED%95%98%EA%B8%B0)
-[원문(영어)- Host single page apps with GitHub Pages](https://github.com/rafgraph/spa-github-pages)
-[한국어 번역본 - 깃허브 페이지(GitHub Pages)에 SPA 배포/호스팅 하기](https://github.com/sujinleeme/spa-github-pages-ko)
+### github pages에 SPA 배포하기
+- [gh-pages: dist 디렉토리만 deploy 하기](https://velog.io/@bigsaigon333/gh-pages-dist-%EB%94%94%EB%A0%89%ED%86%A0%EB%A6%AC%EB%A7%8C-deploy-%ED%95%98%EA%B8%B0)
+- [원문(영어)- Host single page apps with GitHub Pages](https://github.com/rafgraph/spa-github-pages)
+- [한국어 번역본 - 깃허브 페이지(GitHub Pages)에 SPA 배포/호스팅 하기](https://github.com/sujinleeme/spa-github-pages-ko)
 
