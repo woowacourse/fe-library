@@ -23,3 +23,25 @@
 
 - [Google Style Guide - File name](https://google.github.io/styleguide/jsguide.html#file-name), [Google Style Guide - Rules common to all identifiers](https://google.github.io/styleguide/jsguide.html#naming-rules-common-to-all-identifiers) 구글 자바스크립트 스타일 가이드 때문이려나요?
 - 그러네요. 구글은 파일명 `_`나 `-`써서 lowercase로 가이드하고, 에어비엔비는 파일명을 camelCase로 가이드하는군요. [Airbnb - Base filename](https://github.com/airbnb/javascript#naming--filename-matches-export)
+
+### 새로고침 시 발생하는 오류를 Webpack으로 해결하기
+
+```
+webpack에
+devServer: {
+  historyApiFallback: true
+}
+옵션을 주면 404 에러가 뜰 때 index.html으로 자동으로 보내줍니다.
+자동으로 보내줄 때 index.js를 다시 실행하는 것 같아요!
+이것을 이용해서
+//index.js
+const path = window.location.pathname;
+const app = new App();
+app.init();
+app.router.route(path);
+app.runPathMatchedAction(path);
+이런 식으로 새로 고침을 눌렀을 때의 path를 받아 놓고, 받아 놓은 path를 가지고 라우팅을 시도하면 404에러가 발생하지 않고 원래 작업하던 페이지로 쓱 넘어갑니다!
+더 이상 주소 창을 더블클릭해서 지우고 첫 화면으로 가서 작업하지 않아도 됩니다!!
+저만 몰랐을 수도 있지만 모르는 크루들을 위해 공유합니다.:눈이_하트_모양인_고양이::눈이_하트_모양인_고양이:
+도움 : 도비, 카일
+```

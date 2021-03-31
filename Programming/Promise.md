@@ -1,6 +1,7 @@
 # Promise
 
 ## 관련 아티클
+
 - [JavaScript Promise](https://www.hanbit.co.kr/store/books/look.php?p_code=E5027975256)
 
 - [비동기 함수 반환하기 - How to return the result of an asynchronous function in JavaScript](https://flaviocopes.com/how-to-return-result-asynchronous-function)

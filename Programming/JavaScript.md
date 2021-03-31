@@ -101,7 +101,7 @@ car.start().drive()
 ```
 
 ```js
-import { CLASSNAME } from '../constants/index.js';
+import { CLASSNAME } from "../constants/index.js";
 const customElementMethodMixin = {
   show() {
     this.classList.remove(CLASSNAME.COMMON.HIDDEN);
@@ -119,7 +119,7 @@ const customElementMethodMixin = {
 Object.assign(HTMLElement.prototype, customElementMethodMixin);
 export const $ = (selector) => document.querySelector(selector);
 // 사용예시
-$('#app').show().toggle('--shining').innerText = 'test';
+$("#app").show().toggle("--shining").innerText = "test";
 ```
 
 - 객체 내의 동명의 프로퍼티를 갖게 될 경우 그 값이 override 되기 때문에 내장 객체의 모든 프로퍼티를 파악하지 않는다면 코드 작성 중에 예상 동작과 다르게 적용될 수도 있을 것 같아요
@@ -198,3 +198,23 @@ switch (this.matchingNumbers) {
 - expr1 && expr2에서 expr1 를 true로 변환할 수 있는 경우 expr2을 반환하고, 그렇지 않으면 expr1을 반환합니다. `5 && true`의 경우는 `5`를 `true`로 변환할 수 있었기 때문에 `true`가 반환된 것이고
   `true && 5`의 경우는 `true`를 `true`라고 변환할 수 있었기에 `5`가 반환될 수 있었군요. 무조건 true나 false가 나올 줄 알았는데 이런 규칙이 있었군요... [참고링크](<https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/%EB%85%BC%EB%A6%AC_%EC%97%B0%EC%82%B0%EC%9E%90(Logical_Operators)>)
 - `this._rank = this.isMatchBonus ? 2 : 3` 과 같은 방식으로 하는 어떨까요?
+
+### 이벤트 타입마다 버블링이 발생하는지 여부 확인하기
+
+```
+w3명세에는 이벤트 타입마다 버블링이 일어나는지 여부가 기록되어있는데요, 캡쳐링은 항상 발생한다고 생각하고있지만 그에 대한 정보를 찾기 어려워 질문드립니다!  이와 관련해 아는 내용 공유해주시면 감사하겠습니다!
+```
+
+- [DOM LEVEL 3 Events](https://www.w3.org/TR/DOM-Level-3-Events)
+- [Introduction to Events](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events)
+- 공원의 답변
+
+```
+여기저기 기웃거리던 중에 잠깐 코멘트 덧붙여봅니당 👀
+버블링은 (대부분의 경우) 일어나는 게 기본
+그래서 click 이벤트를 예로 들면, 겹겹이 싸여져있는 DOM 구조 특성상 사용자가 의도한 게 정확히 어떤 요소를 click한 건지 특정짓기 어렵다거나… 하는 경우, 혹은 기타 다른 케이스들에서 이런 버블링을 활용해서 이벤트 위임으로 한번에 처리하기도 하고요
+하지만 이벤트의 대상이 매우 명확한 특정 이벤트들의 경우에는 버블링 시키지 않는 경우가 있는 걸로 알고 있습니당. focus같은 경우 아마도 input같이 정해진 몇몇 요소에서 일어나고, <input>을 감싸는 다른 요소가 있다고 해도 focus 이벤트가 발생하는 요소는 아닌 경우가 대부분일테니까요 :생각하는_얼굴:
+그래도 경우에 따라 이벤트를 좀 더 복잡하게 다루게 되어서, 버블링을 일으켜서 상위 요소에서도 이벤트를 다뤄야 할 일이 있다거나 하면 비슷한 경우에 발생하는 버블링이 일어나는 이벤트를 대신 쓸 수 있을 것 같습니다 :미소짓는_얼굴: 예시로 들어주신 것처럼 focus 대신 focusin을 쓰는 식으로요
+스펙 상으로 명시된 곳이 있는 건 아니라 정확한 설명일 지는 모르겠지만..
+참고 정보로만 남겨둡니당 :)
+```
