@@ -134,6 +134,14 @@ API 호출이 기능에 추가되면서 try-catch를 사용하여 각자 다양�
 늘 그렇듯 개발엔 돌아가기면 하면 틀린 것은 없다고 생각합니다. 다만 더 나은 것은 항상 있고 더 낫다고 하더라도 항상 “트레이드 오프“가 존재하기 마련인데요, 제가 최근에 이 에러 처리에 대해 고민했고 그 과정을 글로 적은게 있습니다. 여러분도 한번 에러를 어떻게 처리하면 좋을까 충분히 고민해보시고, 시간 되실 때 글 한 번 읽어보세요! (1편, 3편은 React 중심이라서 2편만 읽어보시길 권장드립니다)
 [효율적인 프런트엔드 에러 핸들링 2편. 클라이언트의 사용자 중심 예외 처리](https://jbee.io/react/error-declarative-handling-2/)
 
+#### MiniCssExtractPlugin이 무엇을 해주는가?
+1. 웹 애플리케이션을 브라우저가 어떻게 렌더링하는지 알아보면 좋을 것 같습니다!
+2. 애플리케이션이 깜빡이지 않는 이유도 같이 살펴보면 좋을 것 같아요!
+
+**Critical rendering path 관련 글 중 rendering blocking 추천해봅니다!**
+[Critical rendering path 관련 글](https://developers.google.com/web/fundamentals/performance/critical-rendering-path?hl=ko)
+[rendering blocking](https://developers.google.com/web/fundamentals/performance/critical-rendering-path/render-blocking-css?hl=ko)
+
 
 ---
 
