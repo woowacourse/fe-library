@@ -55,3 +55,12 @@ func2();
 macro task - micro task 순으로 태스크를 처리할 때, 5. 스크립팅 문의 실행도 하나의 macro task 로 간주되기 때문에 해당 함수가 모두 호출되고 콜스택이 비워지는 것을 시점으로 파악하는 게 더 아웃풋과 연결 될 것 같아요!
 
 https://ko.javascript.info/event-loop 여기서 요약 섹션에 있는 이벤트 루프 알고리즘을 읽어보면 더 파악하기 쉬울 듯 합니다 
+
+### A. 도비
+https://jakearchibald.com/2015/tasks-microtasks-queues-and-schedules/
+요거 봐봐염~
+
+### A. 공원
+이미 봤을 수도 있지만 도비가 알려준 자료의 토크 버전도 재밌으니 한번 봐보셔요 :미소짓는_얼굴: (microtask 같이 언급되는 순서 관련은 후반부에)
+https://www.youtube.com/watch?v=cCOL7MC4Pl0
+
