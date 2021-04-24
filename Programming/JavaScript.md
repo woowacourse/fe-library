@@ -218,3 +218,44 @@ w3명세에는 이벤트 타입마다 버블링이 일어나는지 여부가 기
 스펙 상으로 명시된 곳이 있는 건 아니라 정확한 설명일 지는 모르겠지만..
 참고 정보로만 남겨둡니당 :)
 ```
+
+### JS의 Prototype Chain에서 Property를 어떻게 찾아가는지 궁금해요.
+
+```
+function a(){
+  this.b = undefined
+}
+a.prototype.b = 12
+const c = new a();
+console.log(c.b) // undefined
+------------------------------
+function a(){
+  this.b = null
+}
+a.prototype.b = 12
+const c = new a();
+console.log(c.b) // null
+------------------------------
+function a(){
+}
+a.prototype.b = 12
+const c = new a();
+console.log(c.b) // 12
+
+위의 결과를 이해하기 어렵네요.. undefined라는 값을 할당하는 것과 선언하지 않는 것은 어떻게 다른것인가요?
+```
+```
+function a(){
+  this.b = undefined
+}
+const c = new a()
+c.hasOwnProperty('b') // true
+
+undefined를 할당해도 property로 갖고 있음을 확인할 수 있네요ㅠㅠ
+```
+
+- a안에 멤버변수 b가 없으면 prototype에 있는 b를 찾으러 가는 걸로 알고 있는데.. 이미 멤버변수가 지정이 되어 있어서 먼저 콘솔에 찍히는 것 아닐까요?
+  <img width="228" alt="Screen Shot 2021-04-22 at 12 53 36 AM" src="https://user-images.githubusercontent.com/26598561/115954292-1639de00-a52b-11eb-9fcd-12788c77e955.png">
+- 프로퍼티 탐색 과정은 인스턴스 객체 -> 생성자 함수의 프로토타입 객체 -> 생성자 함수의 프로토타입 체인 (proto) 순으로 이루어집니다 그루밍 의견에 동의합니다. 
+- 프로퍼티의 값이 undefined인것과 프로퍼티가 존재하지 않는다는 다른걸로 알고 있어요. 프로퍼티를 완전히 삭제하려면 delete 연산자를 써야해요.
+- [Operators-Delete/MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/delete)
