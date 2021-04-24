@@ -31,6 +31,22 @@
 - [나만의 유튜브 강의실](https://github.com/woowacourse/javascript-youtube-classroom)
 - [지하철 노선도](https://github.com/woowacourse/javascript-subway)
 
+---
+
+### 🕐 레벨 2
+
+#### 🙋‍ Q&A
+
+- [로또](./Mission/Level2/Lotto.md)
+- [페이먼츠](./Mission/Level2/Payments.md)
+
+
+#### 💻 미션 저장소
+
+- [로또](https://github.com/woowacourse/react-lotto)
+- [페이먼츠](https://github.com/woowacourse/react-payments)
+
+
 <br />
 
 ## 📚 프로그래밍 일반
